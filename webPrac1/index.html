@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practic1</title>
+    <!-- <link rel="stylesheet" href="css/reset.css">-->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__left-block">
+        <div class="header__logo">
+          <img src="icons/js.png" class="header__logo-img" alt="Логотип" />
+        </div>
+        <nav class="header__links">
+          <!--  <a href="#" class="header__link">История языка</a>
+          <a href="task.html" class="header__link">Задачи</a> -->
+          <div class="header__hello-user"></div>
+        </nav>
+      </div>
+      <div class="header__right-block">
+        <button class="btn btn_white" data-modal>Пройти тест</button>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main__history">
+        <h1 class="main__header">Почему JS?</h1>
+        <div class="main__text">
+          <p class="main__text-history">
+            JavaScript был создан в 1995 году в компании Netscape разработчиком
+            Брендоном Айком (Brendon Eich) в качестве языка сценариев в браузере
+            Netscape Navigator 2. Первоначально язык назывался LiveScript, но на
+            волне популярности в тот момент другого языка Java LiveScript был
+            переименован в JavaScript. Однако данный момент до сих пор иногда
+            приводит к некоторой путанице: некоторые начинающие разработчики
+            считают, что Java и JavaScript чуть ли не один и тот же язык. Нет,
+            это абсолютно два разных языка, и они связаны только по названию.
+          </p>
+          <p class="main__text-general">
+            JavaScript – это мультипарадигменный язык программирования, который
+            обычно применяется в качестве встраиваемого инструмента для
+            программного доступа к различным объектам приложений. С точки зрения
+            веб-разработки, без знаний этой технологии невозможно заниматься
+            созданием современных интерактивных сайтов. Язык JS – это то, что
+            «оживляет» разметку страниц (HTML) и пользовательский функционал
+            (CMS) сайтов
+          </p>
+          <p class="main__text-usage">
+            С помощью этого языка реализуется возможность реакции страницы или
+            отдельных ее элементов на действия посетителя. Сегодня JavaScript
+            является базовым языком программирования для браузеров. Он полностью
+            совместим с операционными системами Windows, Linux, Mac OS, а также
+            всеми популярными мобильными платформами
+          </p>
+          <p class="main__text-notUsage">
+            <span>Чем ограничен JavaScript?</span> В чистом виде, то есть без
+            специальных надстроек язык JS может функционировать только в рамках
+            браузера. Но даже здесь есть ограничения, обусловленные требованиями
+            безопасности. К примеру, возможности JavaScript позволяют закрыть
+            только ту вкладку, которая была им создана. В общем, этот язык
+            программирования создан для браузеров и интернета, а за их пределами
+            он и не должен был использоваться.
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="tasks">
+        <h1 class="tasks__header">Задачи</h1>
+        <div class="tasks__task">
+          <div class="tasks__task-head">
+            <h4>Задание 0</h4>
+            <div class="tasks__task-run btn__run-0">Run</div>
+          </div>
+          <div class="task__task-content">
+            <div class="task__task-text">
+              <p>
+                0) Попросите пользователя представиться и поприветствуйте его
+              </p>
+              <p>
+                0*) Запомните имя пользователя и сохраните его после
+                перезагрузки страницы. Выводите имя пользователя в правом
+                верхнем углу экрана
+              </p>
+            </div>
+            <div class="task__task-code">
+              start: () => { personalDB.name = prompt("Ваше имя?", ""); while
+              (personalDB.name == "" || personalDB.name == null) {
+              personalDB.name = prompt("Вы не указали своё имя", ""); }
+              localStorage.setItem("name", personalDB.name); }
+            </div>
+          </div>
+        </div>
+        <div class="tasks__task">
+          <div class="tasks__task-head">
+            <h4>Задание 1</h4>
+            <div class="tasks__task-run btn__run-1">Run</div>
+          </div>
+          <div class="task__task-content">
+            <div class="task__task-text">
+              <p>
+                1) Попросите пользователя ввести основание и высоту
+                треугольника, посчитайте и верните площадь треугольника с
+                заданными параметрами
+              </p>
+            </div>
+            <div class="task__task-code">
+              start: () => { personalMovieDB.count = +prompt("Сколько фильмов вы
+              уже посмотрели?", "");<br />
+              while (personalMovieDB.count == "" || personalMovieDB.count ==
+              null || isNaN(personalMovieDB.count)) { personalMovieDB.count =
+              +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
+            </div>
+          </div>
+        </div>
+        <div class="tasks__task">
+          <div class="tasks__task-head">
+            <h4>Задание 2</h4>
+            <div class="tasks__task-run btn__run-2">Run</div>
+          </div>
+          <div class="task__task-content">
+            <div class="task__task-text">
+              <p>
+                2) Попросите пользвателя ввести 2 строки, сравните количество
+                символов, если количество совпало, выдайте true, в противном
+                случае false
+              </p>
+            </div>
+            <div class="task__task-code">
+              start: () => { personalMovieDB.count = +prompt("Сколько фильмов вы
+              уже посмотрели?", "");<br />
+              while (personalMovieDB.count == "" || personalMovieDB.count ==
+              null || isNaN(personalMovieDB.count)) { personalMovieDB.count =
+              +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
+            </div>
+          </div>
+        </div>
+        <div class="tasks__task">
+          <div class="tasks__task-head">
+            <h4>Задание 3</h4>
+            <div class="tasks__task-run btn__run-3">Run</div>
+          </div>
+          <div class="task__task-content">
+            <div class="task__task-text">
+              <p>
+                3)Попросите пользователя ввести массив из 5 элементов. Выдайте
+                ему минимальное, максимальное значение массива.
+              </p>
+            </div>
+            <div class="task__task-code">
+              start: () => { personalMovieDB.count = +prompt("Сколько фильмов вы
+              уже посмотрели?", "");<br />
+              while (personalMovieDB.count == "" || personalMovieDB.count ==
+              null || isNaN(personalMovieDB.count)) { personalMovieDB.count =
+              +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
+            </div>
+          </div>
+        </div>
+        <div class="tasks__task">
+          <div class="tasks__task-head">
+            <h4>Задание 4</h4>
+            <div class="tasks__task-run btn__run-4">Run</div>
+          </div>
+          <div class="task__task-content">
+            <div class="task__task-text">
+              <p>
+                4) Создайте таймер для пользователя. Функции таймера: начать
+                отсчет, остановить отсчет, посмотреть сколько времени прошло
+                между стартом и финишем
+              </p>
+            </div>
+            <div class="task__task-code">
+              start: () => { personalMovieDB.count = +prompt("Сколько фильмов вы
+              уже посмотрели?", "");<br />
+              while (personalMovieDB.count == "" || personalMovieDB.count ==
+              null || isNaN(personalMovieDB.count)) { personalMovieDB.count =
+              +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
+            </div>
+          </div>
+        </div>
+        <div class="tasks__task">
+          <div class="tasks__task-head">
+            <h4>Задание 5</h4>
+            <div class="tasks__task-run btn__run-5">Run</div>
+          </div>
+          <div class="task__task-content">
+            <div class="task__task-text">
+              <p>
+                5) Создайте тест из 10 вопросов по JS для пользователя. После
+                прохождения пользователь видит свой результат.
+              </p>
+            </div>
+            <div class="task__task-code">
+              start: () => { personalMovieDB.count = +prompt("Сколько фильмов вы
+              уже посмотрели?", "");<br />
+              while (personalMovieDB.count == "" || personalMovieDB.count ==
+              null || isNaN(personalMovieDB.count)) { personalMovieDB.count =
+              +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal">
+        <div class="modal__dialog quiz-box" id="quiz">
+          <div class="modal__content quiz-header">
+            <div class="date name"></div>
+            <h2 id="question">Question text</h2>
+            <ul>
+              <li>
+                <input type="radio" name="answer" id="a" class="answer" />
+                <label for="a" id="a_text">Question</label>
+              </li>
+              <li>
+                <input type="radio" name="answer" id="b" class="answer" />
+                <label for="b" id="b_text">Question</label>
+              </li>
+              <li>
+                <input type="radio" name="answer" id="c" class="answer" />
+                <label for="c" id="c_text">Question</label>
+              </li>
+            </ul>
+            <button id="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
+<!-- 
+  Timer 
+  <div class="promotion__timer">
+          <div class="title">Осталось до конца акции:</div>
+          <div class="timer">
+            <div class="timer__block">
+              <span id="days">12</span>
+              дней
+            </div>
+            <div class="timer__block">
+              <span id="hours">20</span>
+              часов
+            </div>
+            <div class="timer__block">
+              <span id="minutes">56</span>
+              минут
+            </div>
+            <div class="timer__block">
+              <span id="seconds">20</span>
+              секунд
+            </div>
+          </div>
+        </div>
+ -->
