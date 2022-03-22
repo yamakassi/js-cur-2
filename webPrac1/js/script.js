@@ -58,21 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function fnTask3() {
+    let flagNan = false;
     let str = prompt("Введите значения через запятую", "");
     while (str == "" || str == null) {
       str = prompt("Вы не указали значчения", "");
     }
-    const arr = str.split(",");
-    let min = arr[0];
-    let max = arr[0];
-    arr.forEach((x) => {
-      if(typeof x ==='string'){
-       alert("Вы ввели не числа ")
+
+    const arr = str.split(",").map((x) => +x);
+    for (let x of arr) {
+      if (isNaN(x)) flagNan = true;
     }
-      if (x < min) min = x;
-      if (x > max) max = x;
-    });
-    alert(`Минимальное:${min}  Максимальное:${max}`);
+    if (!flagNan) {
+      let min = arr[0];
+      let max = arr[0];
+      arr.forEach((x) => {
+        if (typeof x === "string") {
+          alert("Вы ввели не числа ");
+        }
+        if (x < min) min = x;
+        if (x > max) max = x;
+      });
+      alert(`Минимальное:${min}  Максимальное:${max}`);
+    } else alert("Вы ввели строку ");
   }
   ///modal
 
@@ -82,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   modalTrigger.forEach((btn) => {
     btn.addEventListener("click", openModal);
   });
-  task5.addEventListener("click", openModal)
+  task5.addEventListener("click", openModal);
 
   function closeModal() {
     modal.classList.add("hide");
@@ -283,19 +290,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (t.total <= 0) {
         reset(timeInterval);
       }
-      
     }
-    stopTimer.addEventListener("click", ()=>{
+    stopTimer.addEventListener("click", () => {
       clearInterval(timeInterval);
-      setClock(".timer",new Date());
+      setClock(".timer", new Date());
     });
   }
   task4.addEventListener("click", go);
 
   function go() {
     deadline = prompt("Введите дату в формате yyyy-mm-dd", "");
-    const date = new Date(deadline);
-    if(date<new Date ) {
+    let date = new Date(deadline);
+    if (date < new Date()) {
       alert("Не та дата");
       date = new Date();
     }
