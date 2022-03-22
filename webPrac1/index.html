@@ -108,11 +108,23 @@
               </p>
             </div>
             <div class="task__task-code">
-              start: () => { personalMovieDB.count = +prompt("Сколько фильмов вы
-              уже посмотрели?", "");<br />
-              while (personalMovieDB.count == "" || personalMovieDB.count ==
-              null || isNaN(personalMovieDB.count)) { personalMovieDB.count =
-              +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
+              function fnTask1() {
+                const h = +prompt("Введите высоту", "");
+                const a = +prompt("Введите сторону", "");
+                trArea(h, a);
+            
+                function trArea(v1, v2) {
+                  if (Number.isInteger(Number(v1)) || Number.isInteger(Number(v2))) {
+                    if (v1 > 0 && v2 > 0) {
+                      alert(`Площадь ${0.5 * (v1 * v2)}`);
+                    } else {
+                      alert("Вы ввели не корректное значение");
+                    }
+                  } else {
+                    alert("Вы ввели не числа");
+                  }
+                }
+              }
             </div>
           </div>
         </div>
@@ -162,7 +174,10 @@
         <div class="tasks__task">
           <div class="tasks__task-head">
             <h4>Задание 4</h4>
-            <div class="tasks__task-run btn__run-4">Run</div>
+            <div class="db__button">
+              <div class="tasks__task-run btn__run-4">Run</div>
+              <div class="btn_stop-timer">Reset</div>
+            </div>
           </div>
           <div class="task__task-content">
             <div class="task__task-text">
@@ -180,6 +195,29 @@
               +prompt("Сколько фильмов вы уже посмотрели?", ""); } },
             </div>
           </div>
+          <div class="divider"></div>
+          <div class="promotion__timer">
+            <div class="title">Таймер:</div>
+            <div class="timer">
+              <div class="timer__block">
+                <span id="days">00</span>
+                дней
+              </div>
+              <div class="timer__block">
+                <span id="hours">00</span>
+                часов
+              </div>
+              <div class="timer__block">
+                <span id="minutes">00</span>
+                минут
+              </div>
+              <div class="timer__block">
+                <span id="seconds">00</span>
+                секунд
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
         </div>
         <div class="tasks__task">
           <div class="tasks__task-head">
@@ -228,31 +266,7 @@
       </div>
       <div class="divider"></div>
     </main>
+
     <script src="js/script.js"></script>
   </body>
 </html>
-
-<!-- 
-  Timer 
-  <div class="promotion__timer">
-          <div class="title">Осталось до конца акции:</div>
-          <div class="timer">
-            <div class="timer__block">
-              <span id="days">12</span>
-              дней
-            </div>
-            <div class="timer__block">
-              <span id="hours">20</span>
-              часов
-            </div>
-            <div class="timer__block">
-              <span id="minutes">56</span>
-              минут
-            </div>
-            <div class="timer__block">
-              <span id="seconds">20</span>
-              секунд
-            </div>
-          </div>
-        </div>
- -->

@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     task3 = document.querySelector(".btn__run-3"),
     task4 = document.querySelector(".btn__run-4"),
     task5 = document.querySelector(".btn__run-5"),
-    date = document.querySelector(".date");
+    date = document.querySelector(".date"),
+    stopTimer = document.querySelector(".btn_stop-timer");
   // 0 Задача
   const personalDB = {
     name: "",
@@ -28,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   task1.addEventListener("click", fnTask1);
   task2.addEventListener("click", fnTask2);
   task3.addEventListener("click", fnTask3);
+  // task4.addEventListener("click", fnTask4);
+
   function fnTask1() {
     const h = +prompt("Введите высоту", "");
     const a = +prompt("Введите сторону", "");
@@ -63,6 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let min = arr[0];
     let max = arr[0];
     arr.forEach((x) => {
+      if(typeof x ==='string'){
+       alert("Вы ввели не числа ")
+    }
       if (x < min) min = x;
       if (x > max) max = x;
     });
@@ -76,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   modalTrigger.forEach((btn) => {
     btn.addEventListener("click", openModal);
   });
+  task5.addEventListener("click", openModal)
 
   function closeModal() {
     modal.classList.add("hide");
@@ -154,12 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
   function getTime() {
-    ewDate.getFullYear(); //2019
+    /*newDate.getFullYear(); //2019
     newDate.getMonth(); // 10
     newDate.getDate(); // 11
     const date = document.querySelector(".date");
     date.innerHTML = "gggggg";
-    date.innerHTML = personalDB.name;
+    date.innerHTML = personalDB.name;*/
   }
 
   const quiz = document.getElementById("quiz");
@@ -223,4 +230,75 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  // Timer
+
+  let deadline = new Date();
+
+  function getTimeRemaining(endtime) {
+    const t = Date.parse(endtime) - Date.parse(new Date()),
+      days = Math.floor(t / (1000 * 60 * 60 * 24)),
+      seconds = Math.floor((t / 1000) % 60),
+      minutes = Math.floor((t / 1000 / 60) % 60),
+      hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+
+    return {
+      total: t,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
+    };
+  }
+
+  function getZero(num) {
+    if (num >= 0 && num < 10) {
+      return "0" + num;
+    } else {
+      return num;
+    }
+  }
+
+  function setClock(selector, endtime) {
+    const timer = document.querySelector(selector),
+      days = timer.querySelector("#days"),
+      hours = timer.querySelector("#hours"),
+      minutes = timer.querySelector("#minutes"),
+      seconds = timer.querySelector("#seconds"),
+      timeInterval = setInterval(updateClock, 1000);
+
+    updateClock();
+    function reset(timeInterval) {
+      console.log(timeInterval);
+      clearInterval(timeInterval);
+    }
+    function updateClock() {
+      const t = getTimeRemaining(endtime);
+
+      days.innerHTML = getZero(t.days);
+      hours.innerHTML = getZero(t.hours);
+      minutes.innerHTML = getZero(t.minutes);
+      seconds.innerHTML = getZero(t.seconds);
+
+      if (t.total <= 0) {
+        reset(timeInterval);
+      }
+      
+    }
+    stopTimer.addEventListener("click", ()=>{
+      clearInterval(timeInterval);
+      setClock(".timer",new Date());
+    });
+  }
+  task4.addEventListener("click", go);
+
+  function go() {
+    deadline = prompt("Введите дату в формате yyyy-mm-dd", "");
+    const date = new Date(deadline);
+    if(date<new Date ) {
+      alert("Не та дата");
+      date = new Date();
+    }
+    setClock(".timer", date);
+  }
 });
